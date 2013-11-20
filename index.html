@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="lib/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/eternicode-bootstrap-datepicker-b374f23/js/bootstrap-datepicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.0.0/dist/css/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/eternicode-bootstrap-datepicker-b374f23/css/datepicker.css"></link>
+		<link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css">
+
+		<title>Dunbai Shop - Gunpla</title>
+	</head>
+
+	<body>
+		<div class="row" id="header">
+			<div class="col-sm-12" id="header_img">
+
+			</div>
+		</div>
+
+		<div class="row" id="content">
+			<div class="col-sm-3 form-group" id="leftbar">
+				<div class="row form_items" id="search_header">
+					<div class="col-sm-11 col-sm-offset-1"><span><b>SEARCH</b></span></div>
+				</div>
+
+				<!-- Name -->
+				<div class="row form_items" id="input_name">
+					<div class="col-sm-3 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Name</div>
+					<div class="col-sm-7"><input type="text" class="full_width" id="search_name" name="product_name"></input></div>
+				</div>
+
+				<!--Product Type -->
+				<div class="row form_items" id="select_type">
+					<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Type</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" name="type" value="type1"></input> Type1</div>
+						<div class="col-sm-5"><input type="checkbox" name="type" value="type2"></input> Type2</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" name="type" value="type3"></input> Type3</div>
+						<div class="col-sm-5"><input type="checkbox" name="type" value="type4"></input> Type4</div>
+					</div>
+				</div>
+
+				<!-- Release Date -->
+				<div class="form_items">
+					<div class="row" id="select_date_release">
+						<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Release</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="text" class="full_width" id="release_from" data-provide="datepicker"></input></div>
+						<div class="col-sm-1"><b>~</b></div>
+						<div class="col-sm-4"><input type="text" class="full_width" id="release_to" data-provide="datepicker"></input></div>
+					</div>
+				</div>
+
+				<!-- Appear in episode -->
+				<div class="row form_items" id="appear_in">
+					<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Appear in episode</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" name="ep" value="ep1"></input> ep1</div>
+						<div class="col-sm-5"><input type="checkbox" name="ep" value="ep2"></input> ep2</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" name="ep" value="ep3"></input> ep3</div>
+						<div class="col-sm-5"><input type="checkbox" name="ep" value="ep4"></input> ep4</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" name="ep" value="ep5"></input> ep5</div>
+						<div class="col-sm-5"><input type="checkbox" name="ep" value="ep6"></input> ep6</div>
+					</div>
+				</div>
+
+				<!-- Price -->
+				<div class="form_items">
+					<div class="row" id="price_range">
+						<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Price</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><i class="fa fa-jpy"></i>  <input type="text" class="width_85" id="price_from"></input></div>
+						<div class="col-sm-1"><b>~</b></div>
+						<div class="col-sm-5"><i class="fa fa-jpy"></i>  <input type="text" class="width_65" id="price_to"></input></div>
+					</div>
+				</div>
+
+				<!-- Submit Button -->
+				<div class="row form_items" id="submit">
+					<div class="col-sm-4 col-sm-offset-4"><button class="full_width" id="search_button">Search</button></div>
+				</div>
+			</div>
+
+			<!-- RIGHT PANEL _ SEARCH RESULT DISPLAY -->
+			<div class="col-sm-9" id="right_content">
+				b
+			</div>
+		</div>
+	</body>

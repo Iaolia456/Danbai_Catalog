@@ -1,0 +1,27 @@
+html {
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+	height: 100%;
+}
+
+#header {
+	height: 200px;
+	background: red;
+}
+
+#leftbar {
+	padding: 20px 0 0 0;
+	margin-bottom: 0;
+	background: #DDDDDD;
+}
+
+.form_items { margin-bottom: 15px; }
+.form_title { font-weight: bold; }
+.full_width { width: 100%; }
+.width_90 { width: 90%; }
+.width_85 { width: 85%; }
+.width_65 { width: 65%; }
+.icon { margin-right: 7px; }
