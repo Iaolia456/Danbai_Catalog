@@ -7,20 +7,34 @@ body {
 	height: 100%;
 }
 
+#content {
+	padding-top: 10px;
+}
+
 #header {
 	height: 200px;
-	background: red;
+	background: #85C0FA;
+}
+
+#header_img, #header_title_div {
+	position: absolute;
+}
+
+#header_logo_img {
+	height: 170px;
+	padding: 70px 0 0 570px;
 }
 
 #leftbar {
 	padding: 20px 0 0 0;
 	margin-bottom: 0;
-	background: #DDDDDD;
+	background: #DFDFDF;
 }
 
 .form_items { margin-bottom: 15px; }
 .form_title { font-weight: bold; }
 .full_width { width: 100%; }
+.width_95 { width: 95%; }
 .width_90 { width: 90%; }
 .width_85 { width: 85%; }
 .width_65 { width: 65%; }

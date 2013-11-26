@@ -17,7 +17,10 @@
 	<body>
 		<div class="row" id="header">
 			<div class="col-sm-12" id="header_img">
-
+				<img src="res/gunpla/header.jpg"></img>
+			</div>
+			<div id="header_title_div">
+					<img src="res/gunpla/gunpla-logo.png" id="header_logo_img"></img>
 			</div>
 		</div>
 
@@ -28,9 +31,13 @@
 				</div>
 
 				<!-- Name -->
-				<div class="row form_items" id="input_name">
-					<div class="col-sm-3 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Name</div>
-					<div class="col-sm-7"><input type="text" class="full_width" id="search_name" name="product_name"></input></div>
+				<div class="form_items">
+					<div class="row" id="input_name">
+						<div class="col-sm-3 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Name</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-9 col-sm-offset-2"><input type="text" class="full_width" id="search_name" name="product_name"></input></div>
+					</div>
 				</div>
 
 				<!--Product Grade -->
@@ -69,9 +76,18 @@
 						<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Price</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-4 col-sm-offset-2"><i class="fa fa-jpy"></i>  <input type="text" class="width_85" id="price_from"></input></div>
-						<div class="col-sm-1"><b>~</b></div>
-						<div class="col-sm-5"><i class="fa fa-jpy"></i>  <input type="text" class="width_65" id="price_to"></input></div>
+						<div class="col-sm-9 col-sm-offset-2">
+							<select class="full_width" id="price_select">
+								<option value="0">Any price</option>
+				     			<option value="1-2999">1 Yen - 2999 Yen</option>
+								<option value="3000-5999">3000 Yen - 5999 Yen</option>
+								<option value="6000-8999">6000 Yen - 8999 Yen</option>
+								<option value="9000-11999">9000 Yen - 11999 Yen</option>
+								<option value="12000-14999">12000 Yen - 14999 Yen</option>
+								<option value="15000-17999">15000 Yen - 17999 Yen</option>
+								<option value="18000++">More than 18000 Yen</option>
+							</select>
+						</div>
 					</div>
 				</div>
 
