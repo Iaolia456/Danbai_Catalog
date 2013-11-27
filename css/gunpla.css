@@ -30,12 +30,3 @@ body {
 	margin-bottom: 0;
 	background: #DFDFDF;
 }
-
-.form_items { margin-bottom: 15px; }
-.form_title { font-weight: bold; }
-.full_width { width: 100%; }
-.width_95 { width: 95%; }
-.width_90 { width: 90%; }
-.width_85 { width: 85%; }
-.width_65 { width: 65%; }
-.icon { margin-right: 7px; }
