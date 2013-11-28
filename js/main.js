@@ -13,10 +13,32 @@ $(function() {
 		var price_from = price[0];
 		var price_to = price[1];
 
-		var grade = $('#grade').val();
-		var appearance = $('#ep').val();
-		var brand = $('#brand').val();
+		var grade_arr = $('.grade');
+		var appearance_arr = $('.ep');
+		var brand_arr = $('.brand');
+
+		var grade = "";
+		for(i=0; i<grade_arr.length; i++)
+		{
+			grade += "'" + grade_arr[i].val() + "'" + ",";
+		}
+		grade = grade.substring(0, grade.length-1);
+
+		var appearance = "";
+		for(i=0; i<appearance_arr.length; i++)
+		{
+			appearance += "'" + appearance_arr[i].val() + "'" + ",";
+		}
+		appearance = appearance.substring(0, grade.length-1);
+
+		var brand = "";
+		for(i=0; i<brand_arr.length; i++)
+		{
+			brand += "'" + brand_arr[i].val() + "'" + ",";
+		}
+		brand = brand.substring(0, brand.length-1);
 
 		var promise = query({ prod_name: prod_name, price_from: price_from, price_to: price_to, grade: grade, series: series, brand: brand });
+
 	})
 })
