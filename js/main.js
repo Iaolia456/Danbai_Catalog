@@ -13,9 +13,9 @@ $(function() {
 		var price_from = price[0];
 		var price_to = price[1];
 
-		var grade_arr = $('.grade');
-		var appearance_arr = $('.ep');
-		var brand_arr = $('.brand');
+		var grade_arr = $('.grade:checked');
+		var appearance_arr = $('.ep:checked');
+		var brand_arr = $('.brand:checked');
 
 		var grade = "";
 		for(i=0; i<grade_arr.length; i++)
