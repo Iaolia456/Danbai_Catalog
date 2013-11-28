@@ -1,13 +1,20 @@
 <?php
-$db = mysqli_connect("localhost", "root", "", "danbai_shop");
+function prepareQuery($sql, $params) {
+  for ($i=0; $i<count($params); $i++) {
+    $sql = preg_replace('/\!/', $params[$i], $sql, 1);
+  }
+  return $sql;
+}
 
-$prod_name_string = '%'.$_GET['prod_name'].'%'
-$statement = mysqli_prepare($db,
-	"SELECT *
+
+$db = mysqli_connect("localhost", "root", "", "danbai_shop");
+$prod_name_string = '%'.$_GET['prod_name'].'%';
+
+$sql = "SELECT *
 	FROM `danbai_shop`.`gunpla`
 	WHERE `danbai_shop`.`gunpla`.`price` BETWEEN ? AND ?
 	AND `danbai_shop`.`gunpla`.`prod_name` LIKE (?)
-	AND `danbai_shop`.`gunpla`.`grade` IN (?)
+	AND `danbai_shop`.`gunpla`.`grade` IN (!)
 	AND `danbai_shop`.`gunpla`.`prod_id`
 	IN (
     	SELECT `gunpla`.`prod_id`
@@ -19,16 +26,20 @@ $statement = mysqli_prepare($db,
         	ON `danbai_shop`.`appeared_in`.`prod_id` = `danbai_shop`.`gunpla`.`prod_id`
             	INNER JOIN `danbai_shop`.`brand`
             	ON `danbai_shop`.`brand`.`brand_id` = `danbai_shop`.`gunpla`.`brand_id`
-    	WHERE `series_name` IN (?)
-    	AND `brand_name` IN (?)
-	)");
+    	WHERE `series_name` IN (!)
+    	AND `brand_name` IN (!)
+	)";
+
+$param = array($_GET['grade'], $_GET['series'], $_GET['brand']);
+$sql = prepareQuery($sql, $param);
+$statement = mysqli_prepare($db, $sql);
 
 echo mysqli_error($db);
 
 // i = int
 // s = string
 // d = double
-mysqli_stmt_bind_param($statement, 'iissss', $_GET['price_from'], $_GET['price_to'], $prod_name_string, $_GET['grade'], $_GET['series'], $_GET['brand']);
+mysqli_stmt_bind_param($statement, 'iis', $_GET['price_from'], $_GET['price_to'], $prod_name_string);
 mysqli_stmt_execute($statement);
 mysqli_stmt_bind_result($statement, $prod_id, $prod_name, $grade, $brand_name, $price);
 
@@ -44,10 +55,9 @@ while (mysqli_stmt_fetch($statement)) {
 	);
 }
 
-
 for ($i=0; $i < count($product); $i++) {
     $statement = mysqli_prepare($db,
-	"SELECT `gunpla`.`prod_id`, `gunpla`.`prod_name`, `series`.`series_name`
+	"SELECT `series_name`
 	FROM
 	`danbai_shop`.`series` 
     	INNER JOIN `danbai_shop`.`appeared_in`
@@ -60,12 +70,13 @@ for ($i=0; $i < count($product); $i++) {
 	mysqli_stmt_execute($statement);
 	mysqli_stmt_bind_result($statement, $series_name);
 
-	$series_string = ''
+	$series_string = '';
 	while (mysqli_stmt_fetch($statement)) {
-		$series_string = $series_string.$series_name
+		$series_string = $series_string.$series_name.', ';
 	}
+	$series_string = substr($series_string, 0, -2);
 
-	$product[$i]['appear'] = $series_string
+	$product[$i]['appear'] = $series_string;
 }
 
 header('Content-Type: application/json');
