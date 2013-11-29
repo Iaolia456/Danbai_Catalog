@@ -1,0 +1,32 @@
+html {
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+	height: 100%;
+}
+
+#content {
+	padding-top: 10px;
+}
+
+#header {
+	height: 200px;
+	background: #85C0FA;
+}
+
+#header_img, #header_title_div {
+	position: absolute;
+}
+
+#header_logo_img {
+	height: 170px;
+	padding: 70px 0 0 570px;
+}
+
+#leftbar {
+	padding: 20px 0 0 0;
+	margin-bottom: 0;
+	background: #DFDFDF;
+}

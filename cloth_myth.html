@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="lib/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/utility.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/cloth_myth.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.0.0/dist/css/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css"></link>
+		<link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css">
+
+		<title>Danbai Shop - Saint Seiya Cloth Myth</title>
+	</head>
+
+	<body>
+		<div class="row" id="header">
+			<div class="col-sm-12" id="header_img">
+				<img src="res/gunpla/header.jpg"></img>
+			</div>
+			<div id="header_title_div">
+					<img src="res/gunpla/gunpla-logo.png" id="header_logo_img"></img>
+			</div>
+		</div>
+
+		<div class="row" id="content">
+			<div class="col-sm-3 form-group" id="leftbar">
+				<div class="row form_items" id="search_header">
+					<div class="col-sm-11 col-sm-offset-1"><span><b>SEARCH</b></span></div>
+				</div>
+
+				<!-- Name -->
+				<div class="form_items">
+					<div class="row" id="input_name">
+						<div class="col-sm-3 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Name</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-9 col-sm-offset-2"><input type="text" class="full_width" id="search_name" name="product_name"></input></div>
+					</div>
+				</div>
+
+				<!--Product Line -->
+				<div class="row form_items" id="select_line">
+					<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Line</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" class="line" name="line" value="Original"></input> Original</div>
+						<div class="col-sm-4"><input type="checkbox" class="line" name="line" value="EX"></input> EX</div>
+					</div>
+				</div>
+
+				<!-- Saint Class -->
+				<div class="row form_items" id="saint_class">
+					<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Saint Class</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="saint_class" name="saint_class" value="Bronze Saint"></input> Bronze Saint</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="saint_class" name="saint_class" value="Silver Saint"></input> Silver Saint</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="saint_class" name="saint_class" value="Gold Saint"></input> Gold Saint</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="saint_class" name="saint_class" value="God Warrior"></input> God Warrior</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="saint_class" name="saint_class" value="Mariner"></input> Mariner</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="saint_class" name="saint_class" value="Specter"></input> Specter</div>
+					</div>
+				</div>
+
+				<!-- Price -->
+				<div class="form_items">
+					<div class="row" id="price_range">
+						<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Price</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-9 col-sm-offset-2">
+							<select class="full_width" id="price_select">
+								<option value="0">Any price</option>
+				     			<option value="1-2999">1 Yen - 2999 Yen</option>
+								<option value="3000-5999">3000 Yen - 5999 Yen</option>
+								<option value="6000-8999">6000 Yen - 8999 Yen</option>
+								<option value="9000-11999">9000 Yen - 11999 Yen</option>
+								<option value="12000-14999">12000 Yen - 14999 Yen</option>
+								<option value="15000-17999">15000 Yen - 17999 Yen</option>
+								<option value="18000++">More than 18000 Yen</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Submit Button -->
+				<div class="row form_items" id="submit">
+					<div class="col-sm-4 col-sm-offset-4"><button class="full_width" id="search_button">Search</button></div>
+				</div>
+			</div>
+
+			<!-- RIGHT PANEL _ SEARCH RESULT DISPLAY -->
+			<div class="col-sm-9" id="right_content">
+				<table class="table">  
+        			<thead>  
+          				<tr>  
+            				<th>PIC</th>  
+            				<th>Model</th> 
+            				<th>Grade</th>  
+            				<th>Appearance</th>              				
+            				<th>Brand</th>  
+            				<th>Price</th>  
+          				</tr>  
+        			</thead>  
+        			<tbody>  
+          				<tr>  
+            				<td></td>  
+            				<td>EXIA</td>
+            				<td>MG</td>   
+            				<td>Gundam OO</td>
+            				<td>BANDAI</td>  
+            				<td>8000</td>  
+         				</tr>  
+        			</tbody>  
+      			</table>  
+			</div>
+		</div>
+	</body>
