@@ -38,7 +38,18 @@ $(function() {
 		}
 		brand = brand.substring(0, brand.length-1);
 
-		var promise = query({ prod_name: prod_name, price_from: price_from, price_to: price_to, grade: grade, series: series, brand: brand });
+		var promise = query({ prod_name: prod_name, price_from: price_from, 
+			price_to: price_to, grade: grade, series: series, brand: brand });
 
+		promise.then(function(data)
+		{
+			var rows = "";
+			$.each(data, function(){
+    		rows += "<tr><td>" + "asdasdq" + "<tr><td>" + this.prod_name + "</td><td>" + this.grade + 
+    		"</td><td>" + this.appearance + "</td><td>" + this.brand + "</td></tr>";
+			});
+
+			$( rows ).appendTo( "#result" );
+		}
 	})
 })
