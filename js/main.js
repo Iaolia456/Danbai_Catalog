@@ -55,7 +55,8 @@ $(function() {
 			}
 			$.each(data, function(){
     		rows += "<tr><td>" + this.PIC + "</td><td>" + this.prod_name + "</td><td>" + this.grade + 
-    		"</td><td>" + this.appear + "</td><td>" + this.brand_name + "</td></tr>" + this.price + "</td></tr>";
+    		"</td><td>" + this.appear + "</td><td>" + this.brand_name + "</td><td>" 
+    		+ this.price + "</td></tr>";
 			});
 
 			$( rows ).appendTo( "#result" );
