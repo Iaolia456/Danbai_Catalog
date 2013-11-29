@@ -48,12 +48,17 @@ $(function() {
 		promise.then(function(data)
 		{
 			var rows = "";
+			var table = document.getElementById("result");
+			for(var i = table.rows.length-1; i > 0; i--)
+			{
+				table.deleteRow(i);
+			}
 			$.each(data, function(){
-    		rows += "<tr><td>" + this.PIC + "<tr><td>" + this.Model + "</td><td>" + this.Grade + 
-    		"</td><td>" + this.Appearance + "</td><td>" + this.Brand + "</td></tr>" + this.Price + "</td></tr>";
+    		rows += "<tr><td>" + this.PIC + "</td><td>" + this.prod_name + "</td><td>" + this.grade + 
+    		"</td><td>" + this.appear + "</td><td>" + this.brand_name + "</td></tr>" + this.price + "</td></tr>";
 			});
 
-			$( rows ).appendTo( "#result tbody" );
+			$( rows ).appendTo( "#result" );
 		});
 	});
 });
