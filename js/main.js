@@ -1,5 +1,4 @@
 function query(option) {
-	console.log(option);
 	return $.ajax({
 		url: 'php/gunpla_query.php',
 		data: { prod_name: option.prod_name, price_from: option.price_from, price_to: option.price_to, grade: option.grade, series: option.series, brand: option.brand }
@@ -50,11 +49,11 @@ $(function() {
 		{
 			var rows = "";
 			$.each(data, function(){
-    		rows += "<tr><td>" + "asdasdq" + "<tr><td>" + this.prod_name + "</td><td>" + this.grade + 
-    		"</td><td>" + this.appearance + "</td><td>" + this.brand + "</td></tr>";
+    		rows += "<tr><td>" + this.PIC + "<tr><td>" + this.Model + "</td><td>" + this.Grade + 
+    		"</td><td>" + this.Appearance + "</td><td>" + this.Brand + "</td></tr>" + this.Price + "</td></tr>";
 			});
 
-			$( rows ).appendTo( "#result" );
+			$( rows ).appendTo( "#result tbody" );
 		});
 	});
 });
