@@ -36,7 +36,7 @@ function checkGrade(grade_arr) {
 
 function checkBrand(brand_arr) {
 	var brand = "";
-	if (brand_arr.length == 0) brand = "'Bandai','Daban','TT Hongli','Momoko'"
+	if (brand_arr.length == 0) brand = "'Bandai','Daban','TT Hongli','MC Model'"
 	else {
 		for(i=0; i<brand_arr.length; i++) {
 			brand += "'" + brand_arr[i].value + "'" + ",";
