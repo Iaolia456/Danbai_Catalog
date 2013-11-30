@@ -1,4 +1,5 @@
 function query(option) {
+	console.log(option)
 	return $.ajax({
 		url: 'php/gunpla_query.php',
 		data: { prod_name: option.prod_name, price_from: option.price_from, price_to: option.price_to, grade: option.grade, series: option.series, brand: option.brand }
@@ -56,18 +57,22 @@ $(function() {
 	$('#search_button').click(function() {
 		var prod_name = $('#search_name').val();
 		
-		var price = $('#price_select').find(":selected").val().split('-');
-		var price_from = price[0];
-		var price_to = price[1];
+		var price = $('#price_select').find(":selected").val()
 		if (price == 0) {
 			price_from = 1;
 			price_to = 100000
 		}
 		else if (price == -1) {
-			price_form = 18000
-			proce_too = 100000
+			price_from = 18000
+			price_to = 100000
 		}
-		
+		else {
+			console.log('else')
+			price = $('#price_select').find(":selected").val().split('-');
+			var price_from = price[0];
+			var price_to = price[1];
+		}
+
 		var grade_arr = $('.grade:checked');
 		var appearance_arr = $('.ep:checked');
 		var brand_arr = $('.brand:checked');
