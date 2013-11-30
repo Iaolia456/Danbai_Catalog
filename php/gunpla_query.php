@@ -1,16 +1,17 @@
 <?php
 function prepareQuery($sql, $params) {
-  for ($i=0; $i<count($params); $i++) {
-    $sql = preg_replace('/\!/', $params[$i], $sql, 1);
-  }
-  return $sql;
+	for ($i=0; $i<count($params); $i++) {
+		$sql = preg_replace('/\!/', $params[$i], $sql, 1);
+	}
+	return $sql;
 }
 
 
 $db = mysqli_connect("localhost", "root", "", "danbai_shop");
 $prod_name_string = '%'.$_GET['prod_name'].'%';
 
-$sql = "SELECT *
+$sql = "SELECT `danbai_shop`.`gunpla`.`prod_id`, `danbai_shop`.`gunpla`.`prod_name`, `danbai_shop`.`gunpla`.`grade`,
+				`danbai_shop`.`gunpla`.`brand_id`, `danbai_shop`.`gunpla`.`price`
 	FROM `danbai_shop`.`gunpla`
 	WHERE `danbai_shop`.`gunpla`.`price` BETWEEN ? AND ?
 	AND `danbai_shop`.`gunpla`.`prod_name` LIKE (?)
@@ -28,7 +29,9 @@ $sql = "SELECT *
             	ON `danbai_shop`.`brand`.`brand_id` = `danbai_shop`.`gunpla`.`brand_id`
     	WHERE `series_name` IN (!)
     	AND `brand_name` IN (!)
-	)";
+	)
+	ORDER BY `danbai_shop`.`gunpla`.`brand_id`, 
+       `danbai_shop`.`gunpla`.`grade`, `danbai_shop`.`gunpla`.`price`";
 
 $param = array($_GET['grade'], $_GET['series'], $_GET['brand']);
 $sql = prepareQuery($sql, $param);
