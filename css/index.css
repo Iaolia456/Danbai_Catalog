@@ -1,0 +1,18 @@
+html { height: 100% }
+
+#bg {
+	background: #000000;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+#pic {
+	margin: auto;
+	top: 50%;
+	margin-top: -250px;
+	position: absolute;
+}
+
+#pic2 { margin-left: -160px; }
+#pic3 { margin-left: -160px; }
