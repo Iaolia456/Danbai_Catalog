@@ -82,5 +82,23 @@ for ($i=0; $i < count($product); $i++) {
 	$product[$i]['appear'] = $series_string;
 }
 
+for ($i=0; $i < count($product); $i++) {
+    $statement = mysqli_prepare($db,
+	"SELECT `brand`.`brand_name`
+	FROM 
+	`danbai_shop`.`gunpla`
+		INNER JOIN `danbai_shop`.`brand`
+		ON `danbai_shop`.`gunpla`.`brand_id` = `danbai_shop`.`brand`.`brand_id`
+	WHERE `danbai_shop`.`gunpla`.`prod_id` = ?");
+
+	mysqli_stmt_bind_param($statement, 'i', $product[$i]['prod_id']);
+	mysqli_stmt_execute($statement);
+	mysqli_stmt_bind_result($statement, $brand_name);
+
+	print($brand_name);
+
+	$product[$i]['brand_name'] = $brand_name;
+}
+
 header('Content-Type: application/json');
 echo json_encode($product);
