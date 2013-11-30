@@ -13,16 +13,17 @@ body {
 
 #header {
 	height: 200px;
-	background: #85C0FA;
+	background: #000E21;
 }
 
 #header_img, #header_title_div {
 	position: absolute;
 }
 
+#header_title_div { padding: 100px 0 0 580px; }
+
 #header_logo_img {
-	height: 170px;
-	padding: 70px 0 0 570px;
+	height: 80px;
 }
 
 #leftbar {

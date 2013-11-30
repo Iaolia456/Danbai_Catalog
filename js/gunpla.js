@@ -8,7 +8,7 @@ function query(option) {
 function checkAppear(appearance_arr) {
 	var appearance = "";
 	if (appearance_arr.length == 0) {
-		appearance = "'Mobile Suit Gundam', 'Mobile Suit Zeta Gundam', 'Mobile Suit Gundam ZZ', 'Mobile Suit Gundam: Char's Counterattack','Mobile Suit Gundam Unicorn', 'New Mobile Report Gundam Wing', 'Mobile Suit Gundam Wing: Endless Waltz', 'New Mobile Report Gundam Wing: Endless Waltz', 'After War Gundam X','Mobile Suit Gundam SEED', 'Mobile Suit Gundam SEED Destiny', 'Mobile Suit Gundam OO', 'Mobile Suit Gundam Wing'"
+		appearance = "'Mobile Suit Gundam', 'Mobile Suit Zeta Gundam', 'Mobile Suit Gundam ZZ', 'Mobile Suit Gundam: Char's Counterattack','Mobile Suit Gundam Unicorn', 'New Mobile Report Gundam Wing', 'Mobile Suit Gundam Wing: Endless Waltz', 'After War Gundam X','Gundam SEED', 'Mobile Suit Gundam SEED Destiny', 'Mobile Suit Gundam OO'"
 	}
 	else {
 		for(i=0; i<appearance_arr.length; i++) {
@@ -62,6 +62,10 @@ $(function() {
 		if (price == 0) {
 			price_from = 1;
 			price_to = 100000
+		}
+		else if (price == -1) {
+			price_form = 18000
+			proce_too = 100000
 		}
 		
 		var grade_arr = $('.grade:checked');

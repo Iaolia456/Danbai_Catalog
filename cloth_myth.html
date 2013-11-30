@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/cloth_myth.js"></script>
 		<script type="text/javascript" src="lib/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/utility.css"></link>
 		<link rel="stylesheet" type="text/css" href="css/cloth_myth.css"></link>
@@ -18,10 +18,10 @@
 	<body>
 		<div class="row" id="header">
 			<div class="col-sm-12" id="header_img">
-				<img src="res/gunpla/header.jpg"></img>
+				<img src="res/cloth_myth/header.jpg"></img>
 			</div>
 			<div id="header_title_div">
-					<img src="res/gunpla/gunpla-logo.png" id="header_logo_img"></img>
+					<img src="res/cloth_myth/myth_logo.png" id="header_logo_img"></img>
 			</div>
 		</div>
 
@@ -82,13 +82,13 @@
 						<div class="col-sm-9 col-sm-offset-2">
 							<select class="full_width" id="price_select">
 								<option value="0">Any price</option>
-				     			<option value="1-2999">1 Yen - 2999 Yen</option>
-								<option value="3000-5999">3000 Yen - 5999 Yen</option>
-								<option value="6000-8999">6000 Yen - 8999 Yen</option>
-								<option value="9000-11999">9000 Yen - 11999 Yen</option>
-								<option value="12000-14999">12000 Yen - 14999 Yen</option>
-								<option value="15000-17999">15000 Yen - 17999 Yen</option>
-								<option value="18000++">More than 18000 Yen</option>
+				     			<option value="3000-3999">3000 Yen - 3999 Yen</option>
+								<option value="4000-4999">4000 Yen - 4999 Yen</option>
+								<option value="5000-5999">5000 Yen - 5999 Yen</option>
+								<option value="6000-6999">6000 Yen - 6999 Yen</option>
+								<option value="7000-7999">7000 Yen - 7999 Yen</option>
+								<option value="8000-8999">8000 Yen - 8999 Yen</option>
+								<option value="-1">More than 9000 Yen</option>
 							</select>
 						</div>
 					</div>
@@ -102,26 +102,18 @@
 
 			<!-- RIGHT PANEL _ SEARCH RESULT DISPLAY -->
 			<div class="col-sm-9" id="right_content">
-				<table class="table">  
+				<table class="table" id="result">  
         			<thead>  
           				<tr>  
             				<th>PIC</th>  
-            				<th>Model</th> 
-            				<th>Grade</th>  
-            				<th>Appearance</th>              				
-            				<th>Brand</th>  
-            				<th>Price</th>  
+            				<th>Name</th> 
+            				<th>Line</th>  
+            				<th>Saint Class</th>              				
+            				<th>Price</th>    
           				</tr>  
         			</thead>  
         			<tbody>  
-          				<tr>  
-            				<td></td>  
-            				<td>EXIA</td>
-            				<td>MG</td>   
-            				<td>Gundam OO</td>
-            				<td>BANDAI</td>  
-            				<td>8000</td>  
-         				</tr>  
+          				
         			</tbody>  
       			</table>  
 			</div>
