@@ -8,7 +8,7 @@ function query(option) {
 function checkAppear(appearance_arr) {
 	var appearance = "";
 	if (appearance_arr.length == 0) {
-		appearance = "'Mobile Suit Gundam', 'Mobile Suit Zeta Gundam', 'Mobile Suit Gundam ZZ', 'Mobile Suit Gundam: Char's Counterattack','Mobile Suit Gundam Unicorn', 'New Mobile Report Gundam Wing', 'Mobile Suit Gundam Wing: Endless Waltz', 'After War Gundam X','Gundam SEED', 'Mobile Suit Gundam SEED Destiny', 'Mobile Suit Gundam OO'"
+		appearance = "'Mobile Suit Gundam', 'Mobile Suit Zeta Gundam', 'Mobile Suit Gundam ZZ', 'Mobile Suit Gundam: Chars Counterattack','Mobile Suit Gundam Unicorn', 'New Mobile Report Gundam Wing', 'Mobile Suit Gundam Wing: Endless Waltz', 'After War Gundam X','Gundam SEED', 'Mobile Suit Gundam SEED Destiny', 'Mobile Suit Gundam OO'"
 	}
 	else {
 		for(i=0; i<appearance_arr.length; i++) {

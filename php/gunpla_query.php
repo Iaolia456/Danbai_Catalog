@@ -95,7 +95,11 @@ for ($i=0; $i < count($product); $i++) {
 	mysqli_stmt_execute($statement);
 	mysqli_stmt_bind_result($statement, $brand_name);
 
-	print($brand_name);
+	$brand_string = '';
+	while (mysqli_stmt_fetch($statement)) {
+		$brand_string = $brand_string.$brand_name.', ';
+	}
+	$brand_string = substr($brand_string, 0, -2);
 
 	$product[$i]['brand_name'] = $brand_name;
 }
