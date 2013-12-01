@@ -9,15 +9,14 @@ function prepareQuery($sql, $params) {
 
 $db = mysqli_connect("localhost", "root", "", "danbai_shop");
 
-$sql = "SELECT `prod_id`, `prod_name`, `price`, `acc_type`, `acc_size`
+$sql = "SELECT `prod_id`, `prod_name`, `acc_type`, `acc_size`, `price`
     	FROM
 		`danbai_shop`.`accessory`
         	INNER JOIN `danbai_shop`.`acc_size`
-        	ON `danbai_shop`.`accessory`.`acc_size_id` = `danbai_shop`.`acc_size`.`acc_size__id`
-    	WHERE `danbai_shop`.`accessory`.`price` BETWEEN ? AND ?
-    	AND `danbai_shop`.`accessory`.`acc_type` IN (!)
+        	ON `danbai_shop`.`accessory`.`acc_size_id` = `danbai_shop`.`acc_size`.`acc_size_id`
+    	WHERE `danbai_shop`.`accessory`.`acc_type` IN (!)
     	AND `danbai_shop`.`acc_size`.`acc_size` IN (!)
-		ORDER BY `danbai_shop`.`acc_size`.`acc_size`, `danbai_shop`.`accessory`.`acc_type`, `danbai_shop`.`accessory`.`price`
+		ORDER BY `danbai_shop`.`accessory`.`acc_type`, `danbai_shop`.`acc_size`.`acc_size`, `danbai_shop`.`accessory`.`price`
 ";
 
 $param = array($_GET['acc_type'], $_GET['acc_size']);
@@ -29,17 +28,16 @@ echo mysqli_error($db);
 // i = int
 // s = string
 // d = double
-mysqli_stmt_bind_param($statement, 'ii', $_GET['price_from'], $_GET['price_to']);
 mysqli_stmt_execute($statement);
-mysqli_stmt_bind_result($statement, $prod_id, $prod_name, $type, $size, $price);
+mysqli_stmt_bind_result($statement, $prod_id, $prod_name, $acc_type, $acc_size, $price);
 
 $product = array();
 while (mysqli_stmt_fetch($statement)) {
 	$product[] = array(
 		'prod_id' => $prod_id,
 		'prod_name' => $prod_name,
-		'type' => $type,
-		'size' => $size,
+		'acc_type' => $acc_type,
+		'acc_size' => $acc_size,
 		'price' => $price
 	);
 }

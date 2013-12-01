@@ -115,6 +115,7 @@ $(function() {
     					this.price + "</td></tr>";
     			i++;
 			});
+			console.log(rows)
 
 			$( rows ).appendTo( "#result" );
 

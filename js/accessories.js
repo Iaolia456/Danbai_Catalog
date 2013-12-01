@@ -1,19 +1,7 @@
 function query(option) {
 	return $.ajax({
 		url: 'php/accessories_query.php',
-		data: { type: option.acc_type, size: option.acc_size }
-	})
-}
-
-function getTotalAccInType(option) {
-	return $.ajax({
-		url: 'php/getTotalAccInType.php',
-	})
-}
-
-function getTotalAccInSize(option) {
-	return $.ajax({
-		url: 'php/getTotalAccInSize.php',
+		data: {acc_type: option.acc_type, acc_size: option.acc_size }
 	})
 }
 
@@ -44,26 +32,14 @@ function checkSize(size_arr) {
 	return size;
 }
 
-function addCountNumberToSpan(span_arr, data) {
-	for (var i=0; i<span_arr.length; i++) {
-			span_arr[i].innerHTML = span_arr[i].innerHTML + " (" + data[i]['count'] + ")";
-		}
+function deleteAllFromResultTable(table) {
+ for(var i = table.rows.length-1; i > 0; i--)
+  table.deleteRow(i);
 }
 
 $(function() {
-	var type_arr = $('.type_span')
-	var promise_type = getTotalAccInType()
-	promise_type.then(function(data) {
-		addCountNumberToSpan(type_arr, data)
-	})
-
-	var size_span_arr = $('.size_span');
-	var promise_size = getTotalAccInSize()
-	promise_size.then(function(data) {
-		addCountNumberToSpan(size_span_arr, data)
-	})
-
-	$('#search_button').click(function() {	
+	$('#search_button').click(function() {
+		
 		var type_arr = $('.acc_type:checked');
 		var size_arr = $('.acc_size:checked');
 		
@@ -81,13 +57,14 @@ $(function() {
 
 			var i = 0;
 			$.each(data, function(){
-    			rows += "<tr><td>" + "<div class=\"thumb_img_container\"><img class=\"thumb_img\" src=\"res/cloth_myth/product/" + data[i]['prod_id'] + "/thumb.jpg\"></img></div>" + "</td><td>" + 
+    			rows += "<tr><td>" + "<div class=\"thumb_img_container\"><img class=\"thumb_img\" src=\"res/accessories/product/" + data[i]['prod_id'] + "/thumb.jpg\"></img></div>" + "</td><td>" + 
     					this.prod_name + "</td><td>" + 
     					this.acc_type +	"</td><td>" + 
     					this.acc_size + "</td><td>" + 
     					this.price + "</td></tr>";
     			i++;
 			});
+			console.log(rows)
 
 			$( rows ).appendTo( "#result" );
 		});
