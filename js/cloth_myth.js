@@ -5,6 +5,13 @@ function query(option) {
 	})
 }
 
+function getAllImageOfProdID(option) {
+	return $.ajax({
+		url: 'php/myth_query_image.php',
+		data: { prod_id: option.prod_id }
+	})
+}
+
 function checkLine(line_arr) {
 	var grade = "";
 	if (line_arr.length == 0) grade = "'EX','Original'";
@@ -65,18 +72,24 @@ $(function() {
 		//append result to table
 		promise.then(function(data)
 		{
-
 			var rows = "";
 			var table = document.getElementById("result");
 			deleteAllFromResultTable(table);
-			
+
+			var i = 0;
 			$.each(data, function(){
-    		rows += "<tr><td>" + this.PIC + "</td><td>" + this.prod_name + "</td><td>" + this.line +
-    		"</td><td>" + this.class_name + "</td><td>" + this.price + "</td></tr>";
+    			rows += "<tr><td>" + "<div class=\"thumb_img_container\"><img class=\"thumb_img\" src=\"res/cloth_myth/product/" + data[i]['prod_id'] + "/thumb.jpg\"></img></div>" + "</td><td>" + 
+    					this.prod_name + "</td><td>" + 
+    					this.line +	"</td><td>" + 
+    					this.class_name + "</td><td>" + 
+    					this.price + "</td></tr>";
+    			i++;
 			});
 			console.log(rows)
 
 			$( rows ).appendTo( "#result" );
+
+
 		});
 	});
 });

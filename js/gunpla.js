@@ -1,4 +1,5 @@
 function query(option) {
+	console.log(option)
 	return $.ajax({
 		url: 'php/gunpla_query.php',
 		data: { prod_name: option.prod_name, price_from: option.price_from, price_to: option.price_to, grade: option.grade, series: option.series, brand: option.brand }
@@ -58,10 +59,12 @@ $(function() {
 		
 		var price = $('#price_select').find(":selected").val()
 		if (price == 0) {
+			console.log('if')
 			price_from = 1;
 			price_to = 100000
 		}
 		else if (price == -1) {
+			console.log('elseif')
 			price_from = 18000
 			price_to = 100000
 		}
