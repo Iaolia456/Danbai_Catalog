@@ -12,6 +12,18 @@ function getAllImageOfProdID(option) {
 	})
 }
 
+function getTotalMythInLine() {
+	return $.ajax({
+		url: 'php/getTotalMythInLine.php'
+	})
+}
+
+function getTotalMythInClass() {
+	return $.ajax({
+		url: 'php/getTotalMythInClass.php'
+	})
+}
+
 function checkLine(line_arr) {
 	var grade = "";
 	if (line_arr.length == 0) grade = "'EX','Original'";
@@ -44,7 +56,25 @@ function deleteAllFromResultTable(table) {
 		table.deleteRow(i);
 }
 
+function addCountNumberToSpan(span_arr, data) {
+	for (var i=0; i<span_arr.length; i++) {
+			span_arr[i].innerHTML = span_arr[i].innerHTML + " (" + data[i]['count'] + ")";
+		}
+}
+
 $(function() {
+	var line_arr = $('.line_span')
+	var promise_line = getTotalMythInLine()
+	promise_line.then(function(data) {
+		addCountNumberToSpan(line_arr, data)
+	})
+
+	var class_span_arr = $('.class_span');
+	var promise_class = getTotalMythInClass()
+	promise_class.then(function(data) {
+		addCountNumberToSpan(class_span_arr, data)
+	})
+
 	$('#search_button').click(function() {
 		var prod_name = $('#search_name').val();
 		
