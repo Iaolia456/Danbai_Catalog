@@ -1,5 +1,4 @@
 function query(option) {
-	console.log(option)
 	return $.ajax({
 		url: 'php/accessories_query.php',
 		data: {acc_type: option.acc_type, acc_size: option.acc_size }
