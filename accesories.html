@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/accssories.js"></script>
+		<script type="text/javascript" src="lib/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/utility.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/cloth_myth.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.0.0/dist/css/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css"></link>
+		<link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css">
+
+		<title>Danbai Shop - Accessories</title>
+	</head>
+
+	<body>
+		<div class="row" id="header">
+			<div class="col-sm-12" id="header_img">
+				<img src="res/cloth_myth/header.jpg"></img>
+			</div>
+			<div id="header_title_div">
+					<img src="res/cloth_myth/myth_logo.png" id="header_logo_img"></img>
+			</div>
+		</div>
+
+		<div class="row" id="content">
+			<div class="col-sm-3 form-group" id="leftbar">
+				<div class="row form_items" id="search_header">
+					<div class="col-sm-11 col-sm-offset-1"><span><b>SEARCH</b></span></div>
+				</div>
+
+				<!--Product Type -->
+				<div class="row form_items" id="select_line">
+					<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Type</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2"><input type="checkbox" class="type" name="type" value="Stand"></input> Action Base</div>
+						<div class="col-sm-4"><input type="checkbox" class="size" name="size" value="detail"></input> Detailing Kits</div>
+					</div>
+				</div>
+
+				<!-- Product Size -->
+				<div class="row form_items" id="saint_class">
+					<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Size</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="size" name="size" value="1/144"></input> 1/144</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="size" name="size" value="1/100"></input> 1/100</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2"><input type="checkbox" class="size" name="size" value="1/60"></input> 1/60</div>
+					</div>
+
+				<!-- Price -->
+				<div class="form_items">
+					<div class="row" id="price_range">
+						<div class="col-sm-11 col-sm-offset-1 form_title"><i class="icon fa fa-circle"></i>Price</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-9 col-sm-offset-2">
+							<select class="full_width" id="price_select">
+								<option value="0">Any price</option>
+				     			<option value="3000-3999">3000 Yen - 3999 Yen</option>
+								<option value="4000-4999">4000 Yen - 4999 Yen</option>
+								<option value="5000-5999">5000 Yen - 5999 Yen</option>
+								<option value="6000-6999">6000 Yen - 6999 Yen</option>
+								<option value="7000-7999">7000 Yen - 7999 Yen</option>
+								<option value="8000-8999">8000 Yen - 8999 Yen</option>
+								<option value="-1">More than 9000 Yen</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Submit Button -->
+				<div class="row form_items" id="submit">
+					<div class="col-sm-4 col-sm-offset-4"><button class="full_width" id="search_button">Search</button></div>
+				</div>
+			</div>
+
+			<!-- RIGHT PANEL _ SEARCH RESULT DISPLAY -->
+			<div class="col-sm-9" id="right_content">
+				<table class="table" id="result">  
+        			<thead>  
+          				<tr>  
+            				<th>PIC</th>  
+            				<th>Name</th> 
+            				<th>Type</th>  
+            				<th>Size</th>              				
+            				<th>Price (Yen)</th>    
+          				</tr>  
+        			</thead>  
+        			<tbody>  
+          				
+        			</tbody>  
+      			</table>  
+			</div>
+		</div>
+	</body>
