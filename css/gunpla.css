@@ -30,3 +30,9 @@ body {
 	margin-bottom: 0;
 	background: #DFDFDF;
 }
+
+.thumb_img_container { height: 50px; }
+.thumb_img {
+	position: relative;
+	height: 100%
+}

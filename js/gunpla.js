@@ -87,6 +87,7 @@ $(function() {
 		var promise = query({ prod_name: prod_name, price_from: price_from, 
 			price_to: price_to, grade: grade, series: appearance, brand: brand });
 		//append result to table
+		var i = 0;
 		promise.then(function(data)
 		{
 			var rows = "";
@@ -94,9 +95,13 @@ $(function() {
 			deleteAllFromResultTable(table);
 			
 			$.each(data, function(){
-    		rows += "<tr><td>" + this.PIC + "</td><td>" + this.prod_name + "</td><td>" + this.grade + 
-    		"</td><td>" + this.appear + "</td><td>" + this.brand_name + "</td><td>" 
-    		+ this.price + "</td></tr>";
+    		rows += "<tr><td>" + "<div class=\"thumb_img_container\"><img class=\"thumb_img\" src=\"res/gunpla/product/" + data[i]['prod_id'] + "/thumb.jpg\"></img></div>" + "</td><td>" +
+    		this.prod_name + "</td><td>" +
+    		this.grade + "</td><td>" +
+    		this.appear + "</td><td>" +
+    		this.brand_name + "</td><td>" +
+    		this.price + "</td></tr>";
+    		i++;
 			});
 
 			$( rows ).appendTo( "#result" );
