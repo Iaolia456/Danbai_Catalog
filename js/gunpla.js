@@ -1,10 +1,28 @@
 function query(option) {
-	console.log(option)
 	return $.ajax({
 		url: 'php/gunpla_query.php',
 		data: { prod_name: option.prod_name, price_from: option.price_from, price_to: option.price_to, grade: option.grade, series: option.series, brand: option.brand }
 	})
 }
+
+function getTotalGunplaInEpisode() {
+	return $.ajax({
+		url: 'php/getTotalGunplaInEpisode.php'
+	})
+}
+
+function getTotalGunplaInGrade() {
+	return $.ajax({
+		url: 'php/getTotalGunplaInGrade.php'
+	})
+}
+
+function getTotalGunplaInBrand() {
+	return $.ajax({
+		url: 'php/getTotalGunplaInBrand.php'
+	})
+}
+
 
 function checkAppear(appearance_arr) {
 	var appearance = "";
@@ -53,7 +71,32 @@ function deleteAllFromResultTable(table) {
 		table.deleteRow(i);
 }
 
+function addCountNumberToSpan(span_arr, data) {
+	for (var i=0; i<span_arr.length; i++) {
+			span_arr[i].innerHTML = span_arr[i].innerHTML + " (" + data[i]['count'] + ")";
+		}
+}
+
 $(function() {
+	var grade_span_arr = $('.grade_span')
+	var promise_grade = getTotalGunplaInGrade()
+	promise_grade.then(function(data) {
+		addCountNumberToSpan(grade_span_arr, data)
+	})
+
+	var ep_span_arr = $('.ep_span');
+	var promise_ep = getTotalGunplaInEpisode()
+	promise_ep.then(function(data) {
+		addCountNumberToSpan(ep_span_arr, data)
+	})
+
+	var brand_span_arr = $('.brand_span');
+	var promise_brand = getTotalGunplaInBrand()
+	promise_brand.then(function(data) {
+		addCountNumberToSpan(brand_span_arr, data)
+	})
+
+
 	$('#search_button').click(function() {
 		var prod_name = $('#search_name').val();
 		
