@@ -1,13 +1,25 @@
 function query(option) {
 	return $.ajax({
 		url: 'php/accessories_query.php',
-		data: { prod_name: option.prod_name, price_from: option.price_from, price_to: option.price_to, type: option.acc_type, size: option.acc_size }
+		data: { type: option.acc_type, size: option.acc_size }
+	})
+}
+
+function getTotalAccInType(option) {
+	return $.ajax({
+		url: 'php/getTotalAccInType.php',
+	})
+}
+
+function getTotalAccInSize(option) {
+	return $.ajax({
+		url: 'php/getTotalAccInSize.php',
 	})
 }
 
 function checkType(type_arr) {
 	var type = "";
-	if (type_arr.length == 0) type = "'Stand','Detailing Kits'";
+	if (type_arr.length == 0) type = "'Action Base','Detailing Kits'";
 	else {
 		
 		for(i=0; i<type_arr.length; i++) {
@@ -32,31 +44,34 @@ function checkSize(size_arr) {
 	return size;
 }
 
+function addCountNumberToSpan(span_arr, data) {
+	for (var i=0; i<span_arr.length; i++) {
+			span_arr[i].innerHTML = span_arr[i].innerHTML + " (" + data[i]['count'] + ")";
+		}
+}
+
 $(function() {
-	$('#search_button').click(function() {
-		var prod_name = $('#search_name').val();
-		
-		var price = $('#price_select').find(":selected").val().split('-');
-		var price_from = price[0];
-		var price_to = price[1];
-		if (price == 0) {
-			price_from = 1;
-			price_to = 100000
-		}
-		else if (price == -1) {
-			price_form = 9000
-			proce_too = 100000
-		}
-		
+	var type_arr = $('.type_span')
+	var promise_type = getTotalAccInType()
+	promise_type.then(function(data) {
+		addCountNumberToSpan(type_arr, data)
+	})
+
+	var size_span_arr = $('.size_span');
+	var promise_size = getTotalAccInSize()
+	promise_size.then(function(data) {
+		addCountNumberToSpan(size_span_arr, data)
+	})
+
+	$('#search_button').click(function() {	
 		var type_arr = $('.acc_type:checked');
 		var size_arr = $('.acc_size:checked');
 		
-		var type_check = checkLine(type_arr);
-		var size_check = checkClass(size_arr);
+		var type_check = checkType(type_arr);
+		var size_check = checkSize(size_arr);
 
 		//query
-		var promise = query({ prod_name: prod_name, price_from: price_from, 
-			price_to: price_to, type: type_check, size: size_check });
+		var promise = query({ acc_type: type_check, acc_size: size_check });
 		//append result to table
 		promise.then(function(data)
 		{
@@ -73,11 +88,8 @@ $(function() {
     					this.price + "</td></tr>";
     			i++;
 			});
-			console.log(rows)
 
 			$( rows ).appendTo( "#result" );
-
-
 		});
 	});
 });
