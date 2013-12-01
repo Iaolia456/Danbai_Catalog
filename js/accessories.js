@@ -1,7 +1,20 @@
 function query(option) {
+	console.log(option)
 	return $.ajax({
 		url: 'php/accessories_query.php',
 		data: {acc_type: option.acc_type, acc_size: option.acc_size }
+	})
+}
+
+function getTotalAccInType(option) {
+	return $.ajax({
+		url: 'php/getTotalAccInType.php',
+	})
+}
+
+function getTotalAccInSize(option) {
+	return $.ajax({
+		url: 'php/getTotalAccInSize.php',
 	})
 }
 
@@ -32,14 +45,32 @@ function checkSize(size_arr) {
 	return size;
 }
 
-function deleteAllFromResultTable(table) {
- for(var i = table.rows.length-1; i > 0; i--)
-  table.deleteRow(i);
+function addCountNumberToSpan(span_arr, data) {
+	for (var i=0; i<span_arr.length; i++) {
+			span_arr[i].innerHTML = span_arr[i].innerHTML + " (" + data[i]['count'] + ")";
+	}
 }
 
+function deleteAllFromResultTable(table) {
+	for(var i = table.rows.length-1; i > 0; i--)
+	table.deleteRow(i);
+}
+
+
 $(function() {
-	$('#search_button').click(function() {
-		
+	var type_arr = $('.type_span')
+	var promise_type = getTotalAccInType()
+	promise_type.then(function(data) {
+		addCountNumberToSpan(type_arr, data)
+	})
+
+	var size_span_arr = $('.size_span');
+	var promise_size = getTotalAccInSize()
+	promise_size.then(function(data) {
+		addCountNumberToSpan(size_span_arr, data)
+	})
+
+	$('#search_button').click(function() {	
 		var type_arr = $('.acc_type:checked');
 		var size_arr = $('.acc_size:checked');
 		
@@ -64,7 +95,6 @@ $(function() {
     					this.price + "</td></tr>";
     			i++;
 			});
-			console.log(rows)
 
 			$( rows ).appendTo( "#result" );
 		});
